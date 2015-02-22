@@ -34,6 +34,8 @@ See `sample/test_example.py` for an example using Selenium and Python. Install
 Selenium and ChromeDriver if you haven't before, start the Selenium server then
 run the Python script. All tests should pass without error.
 
+See `sample/TestExample.java` for an example using Selenium and Java.
+
 
 ## How does it work
 1. On start-up, the helper extension disables all extensions that were placed in
