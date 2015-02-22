@@ -18,11 +18,6 @@ os.chdir(os.path.join(os.path.dirname(__file__)))
 options = webdriver.ChromeOptions()
 # Load helper extensions.
 options.add_argument('load-extension=helper,helper-app,test-extension')
-# Alternatively, you can zip or package every extension and use
-# Note: For packaging into a .crx file, you need the private key (key.pem).
-# options.add_extension('helper.zip')
-# options.add_extension('helper-app.zip')
-# options.add_extension('test-extension.zip')
 
 # If you want to know what would happen without the helper extensions, use:
 # options.add_argument('load-extension=test-extension')
