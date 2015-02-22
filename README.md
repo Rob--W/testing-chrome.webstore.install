@@ -23,16 +23,16 @@ test chrome.webstore.install without any dialog.
 
    ```
    # Assume that you are in the directory of this repo
-   chromium --user-data-dir=/tmp/profile --load-extension=helper,helper-app,test-extension
+   chromium --user-data-dir=/tmp/profile --load-extension=helper,helper-app,sample/sample_extension
    ```
 3. From the web page, call `chrome.webstore.install`. Here is an example:
    https://robwu.nl/s/chrome.webstore.install-demo.html
 
 
 ## Example
-See `test_example.py` for an example using Selenium and Python. Install Selenium
-and ChromeDriver if you haven't before, start the Selenium server then run the
-Python script. All tests should pass without error.
+See `sample/test_example.py` for an example using Selenium and Python. Install
+Selenium and ChromeDriver if you haven't before, start the Selenium server then
+run the Python script. All tests should pass without error.
 
 
 ## How does it work
