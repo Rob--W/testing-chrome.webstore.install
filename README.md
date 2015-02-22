@@ -30,7 +30,7 @@ test chrome.webstore.install without any dialog.
 
 
 ## Example
-See `test-example.py` for an example using Selenium and Python. Install Selenium
+See `test_example.py` for an example using Selenium and Python. Install Selenium
 and ChromeDriver if you haven't before, start the Selenium server then run the
 Python script. All tests should pass without error.
 
