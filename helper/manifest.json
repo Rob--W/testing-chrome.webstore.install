@@ -1,0 +1,20 @@
+{
+    // Extension ID phgghofgechdhpoeokocpepikmfdgome
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu2X6RhYppDo0IE/xDsluRJqNnkvkszpoUnSUZCVi+VVbX8TdzIFuImg1dzYhr7OcdXecAcamnRSlacKxH061nm2XhJcieo72p75U0+y7SG6AImNLL0Cb3cwj968RiqMeycCEegcCR/ZkuJ76RLDgwrpXRDQI8tGsweksYNrsmKfzSt/pwO5+/NCMI6Z5uXN6UB5TpawAqytd8URVzofALn9Jfn9UruLsUsMKFbGXY6+lrQS9nPGi06h2TS9YGdasBFi5krYBm7VW47/hqQn3jq2dPzftZXl99I9Ua+w/io6j4I+CiEeG9n7s7TDdZVC2aM907ifNOrFnXhfgcEMcqQIDAQAB",
+    "name": "chrome.webstore.install mock",
+    "description": "Allows testing of chrome.webstore.install, by disabling an extension on start-up, and enabling it when chrome.webstore.install is called.",
+    "version": "1",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "content_scripts": [{
+        "run_at": "document_start",
+        "js": ["contentscript.js"],
+        "matches": ["<all_urls>"]
+    }],
+    "permissions": [
+        "management"
+    ]
+}

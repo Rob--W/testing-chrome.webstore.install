@@ -1,0 +1,17 @@
+{
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgWG6UjiX/rv8RkiZ7GQBs8bNmZD32h31fVFtminPxnsN6dIn2LlNfJoXhOtqUlv0xXf28utEFzWQua5xpbdlo9x1qIvUIb2CyA34UXfUEgjxwkAwZ/QVWsbuzNVqk85c8KWYIYV6UjrGfx/4o3UAKR2M6BANN8J9wA8pryjDc8/IF6KWCoHM2NOjFpE9roWIHW66pUxrXaS1YfAeYjK7iqta0/Ur2ikhJTd9dnOUgvNabunCsNAiS8n3VNZvLQ2ovD0DP44I52wPHc2wkcSFpdMZ0JIl4pGlq+0TeJvux+7ajllFaXhKg+kc1bPblBdPVD0fNcqPmMA/gsd0A0aqiwIDAQAB",
+    "name": "Test extension",
+    "description": "This is an extension with ID fjghafacfnaofjohgbnnckmliohilmlg",
+    "homepage_url": "https://robwu.nl/s/chrome.webstore.install-demo.html",
+    "version": "1",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "content_scripts": [{
+        "run_at": "document_start",
+        "matches": ["https://robwu.nl/s/chrome.webstore.install-demo.html*"],
+        "js": ["installed.js"]
+    }]
+}

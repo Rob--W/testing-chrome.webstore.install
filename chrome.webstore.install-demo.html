@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing inline installation</title>
+<meta name="robots" content="noindex">
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/fjghafacfnaofjohgbnnckmliohilmlg">
+<link rel="canonical" href="https://robwu.nl/s/chrome.webstore.install-demo.html">
+<style>
+    body {
+        margin: 3em auto;
+        width: 600px;
+    }
+</style>
+</head>
+<body>
+<p>
+    <h1>Testing chrome.webstore.install without user interaction</h1>
+    This is a demo of the <code>chrome.webstore.install</code> mock.
+    The "install" button will only work if you have loaded the helper extension/app from
+    <a href="https://github.com/Rob--W/testing-chrome.webstore.install">https://github.com/Rob--W/testing-chrome.webstore.install</a>.
+</p>
+<p>
+    Get the 
+</p>
+<p>
+    <button id="install-extension">Install extension</button> (note: this extension does not exist in the Chrome web store.)
+</p>
+
+
+
+<script>
+function onInstalled() {
+    button.disabled = true;
+    button.textContent = 'The extension has been installed.';
+    // In reality, you would show some nice features on the page.
+}
+var button = document.getElementById('install-extension');
+if (document.documentElement.hasAttribute('attribute-set-by-extension')) {
+    onInstalled();
+} else {
+    button.onclick = function() {
+        chrome.webstore.install(undefined, function() {
+            onInstalled();
+        }, function(error, errorCode) {
+            alert('chrome.webstore.install failed. Error:\n' + error);
+        });
+    };
+}
+</script>
+</body>
+</html>
