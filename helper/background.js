@@ -22,13 +22,23 @@ chrome.management.onInstalled.addListener(function(extension) {
 extensions_to_disable.forEach(function(id) {
     chrome.management.setEnabled(id, false, function() {
         if (!chrome.runtime.lastError) {
-            // Disable only once.
-            var i = extensions_to_disable.indexOf(id);
-            if (i >= 0) {
-                extensions_to_disable.splice(i, 1);
-            }
+            // Remove from list, to avoid disabling an extension twice.
+            removeExtensionFromList();
+        } else {
+            chrome.management.get(id, function(info) {
+                if (!chrome.runtime.lastError && info && !info.enabled) {
+                    // Already disabled.
+                    removeExtensionFromList();
+                }
+            });
         }
     });
+    function removeExtensionFromList() {
+        var i = extensions_to_disable.indexOf(id);
+        if (i >= 0) {
+            extensions_to_disable.splice(i, 1);
+        }
+    }
 });
 
 chrome.runtime.onConnect.addListener(function(port) {
